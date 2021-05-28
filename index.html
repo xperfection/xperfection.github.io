@@ -9,8 +9,23 @@
         <link rel='stylesheet' href='./index.css'>
     </head>
     <body>
-        <script defer src="/index.js"></script>
         <canvas id="bg"></canvas>
-        <p>YO</p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js" integrity="sha512-NLtnLBS9Q2w7GKK9rKxdtgL7rA7CAS85uC/0xd9im4J/yOL4F9ZVlv634NAM7run8hz3wI2GabaA6vv8vJtHiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script defer>
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#bg')
+        });
+
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        camera.position.z = 30;
+
+        renderer.render(scene, camera);
+        </script>
     </body>
 </html>
